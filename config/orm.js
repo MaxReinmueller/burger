@@ -1,5 +1,6 @@
 var connection = require('./connection');
 
+// helper for SQL syntax
 function printQuestionMarks(num) {
   var arr = [];
 
@@ -10,9 +11,22 @@ function printQuestionMarks(num) {
   return arr.toString();
 }
 
+// Helper function for SQL syntax.
+function objToSql(ob) {
+  var arr = [];
+
+  for (var key in ob) {
+    if (Object.hasOwnProperty.call(ob, key)) {
+      arr.push(key + "=" + ob[key]);
+    }
+  }
+
+  return arr.toString();
+}
+
 var orm = {
   // selectAll
-  selectAll: function (tableInput, cb) {
+  all: function (tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
     connection.query(queryString, function (err, result) {
       if (err) {
@@ -23,7 +37,7 @@ var orm = {
   },
 
   // importOne
-  importOne: function(table, cols, vals, cb) {
+  create: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
 
     queryString += " (";
