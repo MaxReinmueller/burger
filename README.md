@@ -1,8 +1,8 @@
 # Burger
 
 ## Description
-The user adds the a burgers to the menue by typing in its name. Upon adding the burger the name is displayed on the left side. 
-The user may then eat any burger by clicking on it, which moves it into the adjacent column and updates its status accordingly in the database.
+The user adds the a burgers to the menue by typing in its name. Upon adding the burger the name is displayed on the left collum. 
+Clicking on the burger moves it from the left side of the screen to the burgers eaten collum.
 
 ## Technologies Used
 * Node.js
